@@ -4,6 +4,7 @@
 //  2) Hero rasmi topilmasa — o'rniga ism harflari ko'rsatiladi
 //  3) Menyuda hozir ko'rilayotgan bo'lim belgilanadi
 //  4) Scroll qilganda bo'limlar pastdan ko'tarilib chiqadi
+//  5) Telefonda menyu: faol havola ko'rinib turadi, o'ng chetda ishora
 // =========================================================
 (function () {
   var STORAGE_KEY = 'sayt-rejimi';
@@ -19,6 +20,14 @@
       tugma.setAttribute(
         'aria-label',
         rejim === 'light' ? "Qorong'i rejimga o'tish" : "Yorug' rejimga o'tish"
+      );
+    }
+    // Telefon brauzerining yuqori paneli sayt foni rangida bo'lsin
+    var panelRangi = document.querySelector('meta[name="theme-color"]');
+    if (panelRangi) {
+      panelRangi.setAttribute(
+        'content',
+        getComputedStyle(document.documentElement).getPropertyValue('--bg').trim()
       );
     }
     try {
@@ -81,7 +90,11 @@
           havolalar.forEach(function (h) {
             h.classList.remove('faol');
           });
-          if (xarita[y.target.id]) xarita[y.target.id].classList.add('faol');
+          var havola = xarita[y.target.id];
+          if (havola) {
+            havola.classList.add('faol');
+            havolaniKorsat(havola);
+          }
         });
       },
       { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
@@ -90,6 +103,29 @@
     bolimlar.forEach(function (b) {
       kuzatuvchi.observe(b);
     });
+  }
+
+  // ---------- 5. Telefonda menyu ----------
+  // Faol havola menyu sig'masa ham ko'rinib tursin (o'rtaga suriladi)
+  function havolaniKorsat(h) {
+    var nav = h.parentNode;
+    if (nav.scrollWidth <= nav.clientWidth) return;
+    nav.scrollLeft = h.offsetLeft - (nav.clientWidth - h.offsetWidth) / 2;
+  }
+
+  // Menyu sig'masa — o'ng chetda ishora; oxiriga surilganda ishora yo'qoladi
+  function menyuIshorasi() {
+    var nav = document.querySelector('.nav');
+    if (!nav) return;
+
+    function yangila() {
+      nav.classList.toggle('suriladi', nav.scrollWidth > nav.clientWidth + 1);
+      nav.classList.toggle('oxirida', nav.scrollLeft + nav.clientWidth >= nav.scrollWidth - 2);
+    }
+
+    nav.addEventListener('scroll', yangila, { passive: true });
+    window.addEventListener('resize', yangila);
+    yangila();
   }
 
   // ---------- 4. Bo'limlarning paydo bo'lishi ----------
@@ -143,5 +179,6 @@
     rasmniTekshir();
     menyuKuzatuvi();
     paydoBolish();
+    menyuIshorasi();
   });
 })();

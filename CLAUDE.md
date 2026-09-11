@@ -13,7 +13,8 @@
 - Oddiylik: har bo'lim bitta vazifa, ortiqcha animatsiya va bezak yo'q.
 
 ## Texnik chegaralar
-- Fayllar: `index.html`, `style.css`, `script.js`, `hero.jpg`. Yangi fayl faqat so'ralsa.
+- Fayllar: `index.html`, `style.css`, `script.js`, `hero.jpg`, `favicon.svg`, `apple-touch-icon.png`, `og-image.jpg`. Yangi fayl faqat so'ralsa.
+- Havola kartasi (`og:url`, `og:image`) to'liq manzil bilan yozilgan — sayt manzili o'zgarsa, ularni ham yangila.
 - Kutubxona, framework, npm, build jarayoni YO'Q — sof HTML/CSS/JS.
 - Telefonda (390px) ham to'g'ri ko'rinsin, gorizontal siljish bo'lmasin.
 - Ko'rish: `node server/serve.js` → http://localhost:4173
