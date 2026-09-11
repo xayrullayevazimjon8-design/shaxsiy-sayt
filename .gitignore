@@ -18,3 +18,6 @@ desktop.ini
 
 # Claude'ning shaxsiy sozlamalari
 .claude/settings.local.json
+
+# Asl rasm — saytda uning kichraytirilgan nusxasi (hero.jpg) ishlatiladi
+yangi-rasm.jpg

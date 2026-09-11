@@ -3,9 +3,13 @@
 //  1) Qorong'i / yorug' rejim (tanlov brauzer xotirasida saqlanadi)
 //  2) Hero rasmi topilmasa — o'rniga ism harflari ko'rsatiladi
 //  3) Menyuda hozir ko'rilayotgan bo'lim belgilanadi
+//  4) Scroll qilganda bo'limlar pastdan ko'tarilib chiqadi
 // =========================================================
 (function () {
   var STORAGE_KEY = 'sayt-rejimi';
+
+  // JS ishlayapti — CSS paydo bo'lish animatsiyasini yoqadi
+  document.documentElement.classList.add('js');
 
   // ---------- 1. Rejim ----------
   function rejimniQoy(rejim) {
@@ -88,6 +92,45 @@
     });
   }
 
+  // ---------- 4. Bo'limlarning paydo bo'lishi ----------
+  // Ro'yxat style.css dagi "Jonlanish" qismi bilan bir xil bo'lishi kerak
+  var JONLI = '.section-head, .stats, .grid > *, .faq, .contact .wrap';
+
+  function paydoBolish() {
+    var elementlar = [].slice.call(document.querySelectorAll(JONLI));
+    var harakatsiz =
+      window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (harakatsiz || !('IntersectionObserver' in window)) {
+      elementlar.forEach(function (e) {
+        e.classList.add('korindi');
+      });
+      return;
+    }
+
+    // Bir qatordagi kartalar ketma-ket chiqsin
+    [].forEach.call(document.querySelectorAll('.grid'), function (grid) {
+      [].forEach.call(grid.children, function (karta, i) {
+        karta.style.setProperty('--kechikish', (i % 3) * 0.07 + 's');
+      });
+    });
+
+    var kuzatuvchi = new IntersectionObserver(
+      function (yozuvlar) {
+        yozuvlar.forEach(function (y) {
+          if (!y.isIntersecting) return;
+          y.target.classList.add('korindi');
+          kuzatuvchi.unobserve(y.target);
+        });
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.12 }
+    );
+
+    elementlar.forEach(function (e) {
+      kuzatuvchi.observe(e);
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
     var tugma = document.querySelector('.theme-toggle');
     if (tugma) {
@@ -99,5 +142,6 @@
     }
     rasmniTekshir();
     menyuKuzatuvi();
+    paydoBolish();
   });
 })();

@@ -21,10 +21,12 @@
       </span>
     </a>
 
-    <nav class="nav">
-      <a href="#bosh" class="faol">Bosh sahifa</a>
+    <nav class="nav" aria-label="Bo'limlar">
       <a href="#xizmatlar">Xizmatlar</a>
+      <a href="#ishlarim">Ishlarim</a>
+      <a href="#fikrlar">Fikrlar</a>
       <a href="#hamkorlar">Hamkorlar</a>
+      <a href="#savollar">Savollar</a>
       <a href="#aloqa">Aloqa</a>
     </nav>
 
@@ -44,6 +46,7 @@
 <!-- ============ Hero ============ -->
 <section class="hero" id="bosh">
   <div class="wrap">
+  <div class="hero-panel">
 
     <div class="hero-text">
       <p class="eyebrow">Salom, men</p>
@@ -103,6 +106,7 @@
       </div>
     </div>
 
+  </div>
   </div>
 </section>
 
@@ -166,6 +170,87 @@
   </div>
 </section>
 
+<!-- ============ Ishlarim ============
+     Namuna: haqiqiy ish kelganda nom va izohni almashtiring.
+     Rasm tayyor bo'lsa, "work-img" ichidagi belgi o'rniga <img> qo'yiladi. -->
+<section id="ishlarim">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="badge">Ishlarim</span>
+      <h2>Bajargan ishlarimdan namunalar</h2>
+      <p class="section-sub">Turli yuklar bo'yicha bajargan ishlarimdan bir nechtasi.</p>
+    </div>
+
+    <div class="grid">
+      <article class="card work">
+        <div class="work-img" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5V8z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg>
+        </div>
+        <h3>Ish nomi</h3>
+        <p>Qisqa izoh: qanday yuk edi, qaysi hujjatlar tayyorlandi va natija qanday bo'ldi.</p>
+      </article>
+
+      <article class="card work">
+        <div class="work-img" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5h13v11H1zM14 9h4l3 3.5V16h-7z"/><circle cx="5.5" cy="18" r="2"/><circle cx="17.5" cy="18" r="2"/></svg>
+        </div>
+        <h3>Ish nomi</h3>
+        <p>Qisqa izoh: qanday yuk edi, qaysi hujjatlar tayyorlandi va natija qanday bo'ldi.</p>
+      </article>
+
+      <article class="card work">
+        <div class="work-img" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
+        </div>
+        <h3>Ish nomi</h3>
+        <p>Qisqa izoh: qanday yuk edi, qaysi hujjatlar tayyorlandi va natija qanday bo'ldi.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Mijozlar fikri ============
+     Namuna: mijozning haqiqiy fikri (roziligi bilan) kelganda almashtiring.
+     "avatar" ichidagi harf — mijoz ismining bosh harfi. -->
+<section id="fikrlar">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="badge">Mijozlar fikri</span>
+      <h2>Mijozlar nima deydi</h2>
+      <p class="section-sub">Mijozlarimning 80% i qayta murojaat qiladi. Ularning o'z so'zlari:</p>
+    </div>
+
+    <div class="grid">
+      <figure class="card review">
+        <svg class="quote" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6C6.7 6 4 8.7 4 12v6h6v-6H7c0-1.7 1.3-3 3-3V6zm10 0c-3.3 0-6 2.7-6 6v6h6v-6h-3c0-1.7 1.3-3 3-3V6z"/></svg>
+        <blockquote>Bu yerga mijozning haqiqiy fikri yoziladi — 1–2 qisqa gap.</blockquote>
+        <figcaption>
+          <span class="avatar">M</span>
+          <span><b>Mijoz ismi</b><span class="who">Kompaniya yoki kasbi</span></span>
+        </figcaption>
+      </figure>
+
+      <figure class="card review">
+        <svg class="quote" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6C6.7 6 4 8.7 4 12v6h6v-6H7c0-1.7 1.3-3 3-3V6zm10 0c-3.3 0-6 2.7-6 6v6h6v-6h-3c0-1.7 1.3-3 3-3V6z"/></svg>
+        <blockquote>Bu yerga mijozning haqiqiy fikri yoziladi — 1–2 qisqa gap.</blockquote>
+        <figcaption>
+          <span class="avatar">M</span>
+          <span><b>Mijoz ismi</b><span class="who">Kompaniya yoki kasbi</span></span>
+        </figcaption>
+      </figure>
+
+      <figure class="card review">
+        <svg class="quote" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6C6.7 6 4 8.7 4 12v6h6v-6H7c0-1.7 1.3-3 3-3V6zm10 0c-3.3 0-6 2.7-6 6v6h6v-6h-3c0-1.7 1.3-3 3-3V6z"/></svg>
+        <blockquote>Bu yerga mijozning haqiqiy fikri yoziladi — 1–2 qisqa gap.</blockquote>
+        <figcaption>
+          <span class="avatar">M</span>
+          <span><b>Mijoz ismi</b><span class="who">Kompaniya yoki kasbi</span></span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <!-- ============ Hamkorlar ============
      Kartalardagi nomlarni haqiqiy hamkorlaringiz nomiga almashtiring.
      "logo" ichidagi harflar — kompaniya nomining bosh harflari. -->
@@ -225,6 +310,40 @@
           <p>Sug'urta kompaniyasi</p>
         </div>
       </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ Savol-javob ============
+     Javoblarni tekshirib, kerak bo'lsa aniqlashtiring. -->
+<section id="savollar">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="badge">Savol-javob</span>
+      <h2>Ko'p beriladigan savollar</h2>
+      <p class="section-sub">Mijozlar eng ko'p so'raydigan savollarga qisqa javoblar.</p>
+    </div>
+
+    <div class="faq">
+      <details class="faq-item" name="savollar">
+        <summary>Qanday hujjatlar kerak bo'ladi?</summary>
+        <p>Odatda tashqi savdo shartnomasi, invoys, qadoqlash varaqasi va transport hujjati kerak bo'ladi. Aniq ro'yxatni yukingiz turiga qarab aytib beraman.</p>
+      </details>
+
+      <details class="faq-item" name="savollar">
+        <summary>Rasmiylashtirish qancha vaqt oladi?</summary>
+        <p>Muddat yuk turiga va hujjatlar qanchalik tayyorligiga bog'liq. Hujjatlarni ko'rib chiqqach, taxminiy muddatni oldindan aytaman.</p>
+      </details>
+
+      <details class="faq-item" name="savollar">
+        <summary>Xizmat narxi qancha?</summary>
+        <p>Narx yuk va hujjatlar hajmiga qarab kelishiladi. Aniq narxni bilish uchun qo'ng'iroq qiling yoki Telegramda yozing.</p>
+      </details>
+
+      <details class="faq-item" name="savollar">
+        <summary>Qanday bog'lanaman?</summary>
+        <p><a href="tel:+998972075960">+998 97 207 59 60</a> raqamiga qo'ng'iroq qiling yoki Telegramda <a href="https://t.me/Raxmonov_01082002" target="_blank" rel="noopener">@Raxmonov_01082002</a> ga yozing.</p>
+      </details>
     </div>
   </div>
 </section>

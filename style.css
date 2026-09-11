@@ -49,6 +49,11 @@ html[data-theme="light"]{
 
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
+/* Telefonda "harakatni kamaytirish" yoqilgan bo'lsa — silliq o'tish va animatsiyalarsiz */
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important}
+}
 
 body{
   font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
@@ -104,10 +109,12 @@ a{color:inherit}
   border:1px solid var(--line);
 }
 .nav a{
+  flex:none;
+  white-space:nowrap;
   text-decoration:none;
   font-size:14.5px;
   color:var(--muted);
-  padding:9px 17px;
+  padding:9px 15px;
   border-radius:999px;
   transition:color .16s ease, background-color .16s ease;
 }
@@ -141,6 +148,7 @@ html[data-theme="light"] .theme-toggle .icon-moon{display:none}
 section{
   padding:86px 0;
   border-bottom:1px solid var(--line);
+  scroll-margin-top:76px; /* menyudan o'tganda sarlavha panel ostida qolmasin */
 }
 .badge{
   display:inline-block;
@@ -171,17 +179,24 @@ h2{
 
 /* ================= Hero ================= */
 .hero{
-  padding:70px 0 84px;
+  padding:36px 0 84px;
   border-bottom:1px solid var(--line);
   background-image:
     radial-gradient(880px 620px at 8% -18%, var(--bg-glow-1), transparent 60%),
     radial-gradient(820px 640px at 102% 8%, var(--bg-glow-2), transparent 60%);
 }
-.hero .wrap{
+/* Butun hero bitta katta shisha panel ichida */
+.hero-panel{
   display:grid;
-  grid-template-columns:1.02fr .98fr;
-  gap:60px;
+  grid-template-columns:1.05fr .95fr;
+  gap:48px;
   align-items:center;
+  padding:56px 52px 56px 60px;
+  border-radius:40px;
+  background-color:var(--glass);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(18px);
 }
 
 .eyebrow{
@@ -234,21 +249,30 @@ h2{
 }
 
 /* ---- Rasm va suzuvchi kartalar ---- */
-.photo-wrap{position:relative;padding:6px 10px}
+.photo-wrap{position:relative;max-width:440px;margin-left:auto;padding:0 18px 0 26px}
+/* Rasm shisha ramka ichida */
 .photo{
   position:relative;
-  aspect-ratio:1/1.12;
-  border-radius:76px;
-  overflow:hidden;
+  aspect-ratio:3/4;
+  padding:10px;
+  border-radius:36px;
   border:1px solid var(--line);
   background-color:var(--glass);
   background-image:linear-gradient(150deg,var(--accent-soft),transparent 60%);
   box-shadow:var(--shadow);
 }
-.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:50% 20%;
+  display:block;
+  border-radius:27px;
+}
 .photo-fallback{
   position:absolute;
-  inset:0;
+  inset:10px;
+  border-radius:27px;
   display:none;
   align-items:center;
   justify-content:center;
@@ -273,8 +297,8 @@ h2{
   padding:16px 20px;
 }
 .float-tajriba{
-  top:26px;
-  right:-14px;
+  top:34px;
+  right:-10px;
   text-align:center;
   min-width:108px;
 }
@@ -294,8 +318,8 @@ h2{
   line-height:1.3;
 }
 .float-natija{
-  bottom:34px;
-  right:-26px;
+  bottom:40px;
+  right:-22px;
   min-width:216px;
 }
 .float-natija .label{font-size:12.5px;color:var(--muted)}
@@ -310,8 +334,8 @@ h2{
 .float-natija svg{display:block;width:100%;height:38px;margin-top:6px}
 .bubble{
   position:absolute;
-  left:-10px;
-  bottom:22%;
+  left:0;
+  bottom:30%;
   width:64px;
   height:64px;
   border-radius:50%;
@@ -366,12 +390,18 @@ h2{
   border-radius:20px;
   padding:28px 26px;
   box-shadow:var(--shadow-sm);
-  transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+  position:relative;
+  transition:transform .22s ease-out, border-color .22s ease-out, box-shadow .22s ease-out;
 }
-.card:hover{
-  transform:translateY(-4px);
-  border-color:var(--accent-line);
-  box-shadow:var(--shadow);
+/* Sichqoncha kelganda karta 12px ko'tariladi va 1.1x kattalashadi
+   (faqat sichqonchali qurilmalarda — telefonda bosganda "osilib" qolmasin) */
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+  .card:hover{
+    transform:translateY(-12px) scale(1.1);
+    z-index:2;
+    border-color:var(--accent-line);
+    box-shadow:var(--shadow);
+  }
 }
 .card .num{
   display:inline-flex;
@@ -421,6 +451,119 @@ h2{
 }
 .partner h3{font-size:17px}
 .partner p{margin-top:3px;font-size:14px}
+
+/* Ishlarim kartalari — rasm kelguncha iliq fon va belgi */
+.work-img{
+  aspect-ratio:16/10;
+  margin-bottom:18px;
+  border-radius:14px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-color:var(--tile);
+  background-image:linear-gradient(150deg,var(--accent-soft),transparent 70%);
+  border:1px solid var(--line);
+  color:var(--accent);
+}
+.work-img svg{width:44px;height:44px;opacity:.85}
+.work-img img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* Mijozlar fikri */
+.review{display:flex;flex-direction:column;gap:18px}
+.review .quote{width:28px;height:28px;color:var(--accent);opacity:.8}
+.review blockquote{
+  flex:1;
+  font-size:16.5px;
+  line-height:1.65;
+  color:var(--text-soft);
+}
+.review figcaption{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding-top:16px;
+  border-top:1px solid var(--line);
+}
+.avatar{
+  width:42px;
+  height:42px;
+  flex:none;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-color:var(--accent-soft);
+  border:1px solid var(--accent-line);
+  color:var(--accent);
+  font-weight:700;
+}
+.review figcaption b{display:block;font-size:15.5px;line-height:1.3}
+.review .who{display:block;font-size:13.5px;color:var(--muted)}
+
+/* ================= Savol-javob ================= */
+.faq{max-width:780px;display:grid;gap:12px}
+.faq-item{
+  background-color:var(--bg-soft);
+  border:1px solid var(--line);
+  border-radius:16px;
+  transition:border-color .18s ease;
+}
+.faq-item[open]{border-color:var(--accent-line)}
+.faq-item summary{
+  list-style:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:20px 22px;
+  font-size:17px;
+  font-weight:600;
+  line-height:1.4;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{
+  content:"+";
+  flex:none;
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-color:var(--accent-soft);
+  color:var(--accent);
+  font-size:20px;
+  font-weight:600;
+  line-height:1;
+}
+.faq-item[open] summary::after{content:"−"}
+.faq-item summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:16px}
+.faq-item p{padding:0 22px 20px;color:var(--muted);font-size:15.5px}
+.faq-item a{
+  color:var(--text);
+  font-weight:600;
+  text-decoration:underline;
+  text-decoration-color:var(--accent);
+  text-decoration-thickness:2px;
+  text-underline-offset:3px;
+}
+
+/* Akkordeon: bittasi ochilsa qolganlari yopiladi (HTML'dagi name="savollar"),
+   javob tez va yumshoq ochiladi/yopiladi */
+@media(prefers-reduced-motion:no-preference){
+  .faq-item[open] p{animation:kotarilish .25s ease-out}
+  @supports (interpolate-size:allow-keywords){
+    .faq-item{interpolate-size:allow-keywords}
+    .faq-item::details-content{
+      block-size:0;
+      overflow:hidden;
+      transition:block-size .25s ease-out, content-visibility .25s allow-discrete;
+    }
+    .faq-item[open]::details-content{block-size:auto}
+  }
+}
 
 /* ================= Tugmalar ================= */
 .actions{display:flex;flex-wrap:wrap;gap:12px}
@@ -475,23 +618,66 @@ footer{
   border-top:1px solid var(--line);
 }
 
+/* ================= Jonlanish ================= */
+@keyframes kotarilish{
+  from{opacity:0;transform:translateY(18px)}
+  to{opacity:1;transform:none}
+}
+
+/* Sahifa ochilganda hero ketma-ket chiqadi */
+.hero-text > *{animation:kotarilish .5s ease-out backwards}
+.hero-text > :nth-child(2){animation-delay:.06s}
+.hero-text > :nth-child(3){animation-delay:.12s}
+.hero-text > :nth-child(4){animation-delay:.18s}
+.hero-text > :nth-child(5){animation-delay:.24s}
+.hero-text > :nth-child(6){animation-delay:.3s}
+.photo-wrap{animation:kotarilish .6s .15s ease-out backwards}
+.photo-wrap .float,
+.photo-wrap .bubble{animation:kotarilish .45s .45s ease-out backwards}
+
+/* Scroll qilganda bo'limlar pastdan ko'tarilib chiqadi (faqat JS ishlasa).
+   "backwards" — animatsiya tugagach karta hover'i bemalol ishlaydi. */
+.js :is(.section-head,.stats,.grid > *,.faq,.contact .wrap):not(.korindi){opacity:0}
+.js .korindi{animation:kotarilish .45s ease-out var(--kechikish,0s) backwards}
+
 /* ================= Moslashuvchanlik ================= */
-@media(max-width:980px){
-  .nav{display:none}
+/* Tor ekranda menyu logotip ostiga tushadi va yon tomonga suriladi */
+@media(max-width:1080px){
+  .topbar .wrap{
+    flex-wrap:wrap;
+    height:auto;
+    row-gap:10px;
+    padding-top:12px;
+    padding-bottom:10px;
+  }
+  .nav{
+    order:3;
+    flex:1 1 100%;
+    overflow-x:auto;
+    scrollbar-width:none;
+  }
+  .nav::-webkit-scrollbar{display:none}
+  section{scroll-margin-top:124px}
 }
 @media(max-width:860px){
-  .hero{padding:56px 0 66px}
-  .hero .wrap{grid-template-columns:1fr;gap:54px}
-  .photo-wrap{max-width:400px;margin:0 auto;padding:6px 26px}
-  .photo{aspect-ratio:1/1;border-radius:56px}
-  .float-tajriba{right:0;top:16px}
-  .float-natija{right:0;bottom:16px}
-  .bubble{left:0;bottom:26%}
+  .hero{padding:28px 0 66px}
+  .hero-panel{grid-template-columns:1fr;gap:44px;padding:44px 36px}
+  .photo-wrap{max-width:400px;margin:0 auto;padding:0 22px}
+  .photo{aspect-ratio:4/5}
+  .float-tajriba{right:0;top:22px}
+  .float-natija{right:0;bottom:22px}
+  .bubble{left:0;bottom:30%}
   .lead{max-width:none}
 }
 @media(max-width:560px){
   section{padding:58px 0}
-  .topbar .wrap{height:68px}
+  .nav a{padding:8px 13px;font-size:14px}
+  .hero{padding:16px 0 56px}
+  .hero-panel{padding:30px 18px 34px;border-radius:30px}
+  .photo-wrap{padding:0 12px}
+  .photo{padding:8px;border-radius:28px}
+  .photo img,.photo-fallback{border-radius:21px}
+  .photo-fallback{inset:8px}
   .brand-sub{display:none}
   .topbar-right .btn-sm{display:none}
   .stats{grid-template-columns:1fr}
@@ -499,6 +685,8 @@ footer{
   .stat b{font-size:28px}
   .stat span{margin-top:0}
   .card{padding:24px 20px}
+  .faq-item summary{padding:18px;font-size:16px}
+  .faq-item p{padding:0 18px 18px}
   .actions .btn{flex:1 1 100%}
   .contact .btn{flex:1 1 100%}
   .float{padding:12px 15px;border-radius:16px}
