@@ -247,9 +247,11 @@ Keyin brauzerda: http://localhost:4173
 
 **Saytga chiqarish:** `main` shoxiga push qilinsa, GitHub Actions ishga tushadi va serverdagi `~/deploy.sh` orqali sayt yangilanadi. Batafsil: `server.md`.
 
-### ⚠️ Hozir auto-deploy ishlamayapti
+### ✅ Auto-deploy tuzatildi (2026-09-12)
 
-**Holat (2026-09-12):** kod GitHub'ga yuborilgan, lekin serverga tushmayapti — https://gulomiy.uz hali eski ko'rinishda.
+Hozir ishlaydi: `main` ga push → ~15 sekundda https://gulomiy.uz yangilanadi.
+
+Quyidagisi — bir marta chiqqan muammo va uning yechimi. Repo qaytib **yopiq** qilinsa, xato ham qaytadi — shuning uchun yozib qo'yildi.
 
 **Xato:**
 
@@ -260,11 +262,11 @@ Process exited with status 128
 
 **Sababi:** repozitoriy **yopiq (private)**, serverdagi `~/deploy.sh` esa `https://` orqali `git pull` qiladi. Yopiq repodan tortib olish uchun parol yoki kalit kerak, serverda esa u yo'q. Oxirgi muvaffaqiyatli deploy — 2026-09-11, 20:04.
 
-**Yechimlar (bittasini tanlash kerak):**
+**Yechimlar:**
 
 | Yechim | Nima qilinadi | Izoh |
 |---|---|---|
-| 1. Repoyni ochiq qilish | GitHub → Settings → General → Change visibility → Public | Eng tez yo'l. Repoda parol/token yo'q (ular GitHub Secrets da), sayt matni allaqachon hammaga ochiq |
+| 1. Repoyni ochiq qilish ✅ | GitHub → Settings → General → Change visibility → Public | **Shu yo'l tanlandi.** Repoda parol/token yo'q (ular GitHub Secrets da), sayt matni allaqachon hammaga ochiq |
 | 2. Serverga SSH deploy kalit | Serverda kalit yaratib, uning ochiq qismini GitHub → Settings → Deploy keys ga qo'shish, so'ng `git remote set-url origin git@github.com:...` | Repo yopiq qoladi |
 | 3. Fayllarni SSH bilan ko'chirish | `deploy.yml` da `git pull` o'rniga `scp-action` ishlatish | GitHub Actions da SSH kalit allaqachon bor; serverdagi sayt papkasi nomi kerak |
 
