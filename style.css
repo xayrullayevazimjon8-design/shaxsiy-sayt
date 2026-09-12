@@ -1,5 +1,5 @@
 /* =========================================================
-   Raxmonov G'ulombek — vizitka sayt
+   Prestigious declarants — deklarantlar jamoasi sayti
    Ranglar ikki rejimda: qorong'i (standart) va yorug'
    ========================================================= */
 
@@ -56,6 +56,7 @@ html{scroll-behavior:smooth}
 }
 
 body{
+  position:relative;
   font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
   background-color:var(--bg);
   color:var(--text);
@@ -64,7 +65,65 @@ body{
   transition:background-color .25s ease, color .25s ease;
 }
 
-.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 22px}
+/* ================= Orqa fon: sohaga oid stikerlar =================
+   Matn ortida turadi (z-index:-1), bosilmaydi, o'qishga xalaqit bermaydi */
+.fon{
+  position:absolute;
+  inset:0;
+  z-index:-1;
+  overflow:hidden;
+  pointer-events:none;
+}
+.stiker{
+  position:absolute;
+  color:var(--accent);
+  opacity:.07;
+}
+.stiker svg{width:100%;height:100%;display:block}
+html[data-theme="light"] .stiker{opacity:.1}
+
+.stiker-1{width:120px;height:120px;top:13%;left:-26px;transform:rotate(-12deg)}
+.stiker-2{width:150px;height:150px;top:30%;right:-30px;transform:rotate(8deg)}
+.stiker-3{width:92px;height:92px;top:47%;left:3%;transform:rotate(14deg)}
+.stiker-4{width:130px;height:130px;top:62%;right:2%;transform:rotate(-7deg)}
+.stiker-5{width:104px;height:104px;top:78%;left:-18px;transform:rotate(10deg)}
+.stiker-6{width:112px;height:112px;top:91%;right:-22px;transform:rotate(-14deg)}
+
+/* ================= Deklaratsiya hujjati =================
+   --p (0…1) — sahifa qanchaga surilgani. Qiymatni script.js qo'yadi:
+   0 → yuqori o'ng burchak, bo'sh varaq;  1 → yuqori chap burchak, to'la varaq */
+.hujjat{
+  --p:0;
+  position:fixed;
+  top:104px;
+  left:0;
+  width:100%;
+  height:0;
+  z-index:-1;
+  color:var(--muted);
+  pointer-events:none;
+}
+.hujjat-varaq{
+  position:absolute;
+  top:0;
+  /* 92% (o'ng chet) → 6% (chap chet): hero paneli ortida ko'rinmay qolmasligi
+     uchun varaq sahifaning chetidan boshlanadi */
+  left:calc(92% - var(--p) * 86%);
+  width:148px;
+  opacity:.85;
+  transform:translateX(-50%) rotate(calc(7deg - var(--p) * 12deg));
+}
+.hujjat-varaq svg{width:100%;height:auto;display:block}
+/* Har bir satr o'z navbatida ko'rinadi: --k — shu satrning "navbati" */
+.hujjat-satr,
+.hujjat-muhr{opacity:calc((var(--p) - var(--k)) * 7)}
+
+/* Harakatni kamaytirish yoqilgan bo'lsa — hujjat qimirlamaydi */
+@media(prefers-reduced-motion:reduce){
+  .hujjat{--p:.55}
+}
+
+.wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 22px}
 a{color:inherit}
 
 /* ================= Yuqori panel ================= */
@@ -100,10 +159,14 @@ a{color:inherit}
 .brand-name{font-weight:700;font-size:16.5px;line-height:1.25;letter-spacing:-.01em}
 .brand-sub{font-size:13px;color:var(--muted);line-height:1.25}
 
+/* Menyu: kompyuterda bir qator, telefonda ☰ tugmasi ostidagi panel */
+.menyu{display:flex;align-items:center;gap:12px}
+.menyu-qosh{display:none}
+
 .nav{
   display:flex;
   position:relative;
-  gap:4px;
+  gap:2px;
   padding:5px;
   border-radius:999px;
   background-color:var(--tile);
@@ -113,9 +176,9 @@ a{color:inherit}
   flex:none;
   white-space:nowrap;
   text-decoration:none;
-  font-size:14.5px;
+  font-size:14px;
   color:var(--muted);
-  padding:9px 15px;
+  padding:9px 13px;
   border-radius:999px;
   transition:color .16s ease, background-color .16s ease;
 }
@@ -128,6 +191,59 @@ a{color:inherit}
 }
 
 .topbar-right{display:flex;align-items:center;gap:10px}
+
+/* ---- Til tugmalari: UZ · RU · EN ---- */
+.lang{
+  display:flex;
+  gap:2px;
+  padding:4px;
+  border-radius:999px;
+  background-color:var(--tile);
+  border:1px solid var(--line);
+}
+.lang-btn{
+  font-family:inherit;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.03em;
+  padding:7px 10px;
+  border:0;
+  border-radius:999px;
+  background-color:transparent;
+  color:var(--muted);
+  cursor:pointer;
+  transition:color .16s ease, background-color .16s ease;
+}
+.lang-btn:hover{color:var(--text)}
+.lang-btn.faol{
+  color:var(--btn-text);
+  background-image:linear-gradient(140deg,var(--accent),var(--accent-2));
+}
+
+/* ---- Telefon uchun menyu tugmasi ---- */
+.burger{
+  display:none;
+  width:42px;height:42px;flex:none;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  border-radius:14px;
+  border:1px solid var(--line);
+  background-color:var(--tile);
+  cursor:pointer;
+}
+.burger span{
+  display:block;
+  width:18px;
+  height:2px;
+  border-radius:2px;
+  background-color:var(--accent);
+  transition:transform .2s ease, opacity .2s ease;
+}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){opacity:0}
+.burger[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
 .theme-toggle{
   width:42px;height:42px;flex:none;
@@ -200,6 +316,22 @@ h2{
   backdrop-filter:blur(18px);
 }
 
+/* Hero tepasidagi kichik yorliq */
+.pill{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-bottom:20px;
+  padding:7px 15px 7px 11px;
+  border-radius:999px;
+  background-color:var(--accent-soft);
+  border:1px solid var(--accent-line);
+  color:var(--accent);
+  font-size:13.5px;
+  font-weight:600;
+}
+.pill svg{width:15px;height:15px;flex:none}
+
 .eyebrow{
   font-size:13px;
   font-weight:700;
@@ -250,7 +382,8 @@ h2{
 }
 
 /* ---- Rasm va suzuvchi kartalar ---- */
-.photo-wrap{position:relative;max-width:440px;margin-left:auto;padding:0 18px 0 26px}
+/* width:100% — rasm fayli bo'lmasa ham ramka o'z o'lchamini saqlaydi */
+.photo-wrap{position:relative;width:100%;max-width:440px;margin-left:auto;padding:0 18px 0 26px}
 /* Rasm shisha ramka ichida */
 .photo{
   position:relative;
@@ -283,6 +416,8 @@ h2{
   color:#fff6e6;
   text-shadow:0 2px 10px rgba(90,40,0,.4);
 }
+/* Namuna yozuvi suzuvchi karta ostida qolib ketmasin — yuqoriga suriladi */
+.photo.rasmsiz .photo-fallback{padding-bottom:18%}
 .photo-fallback b{font-size:64px;font-weight:800;letter-spacing:.04em;line-height:1}
 .photo-fallback span{font-size:13px;opacity:.9;letter-spacing:.08em;text-transform:uppercase}
 .photo.rasmsiz img{display:none}
@@ -354,7 +489,7 @@ h2{
 /* ================= Statistika ================= */
 .stats{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(4,1fr);
   gap:14px;
 }
 .stat{
@@ -430,6 +565,51 @@ h2{
   font-size:15.5px;
 }
 
+/* Kichik yorliq — "Tayyorlanmoqda", "Ma'lumot keyin to'ldiriladi" */
+.chip{
+  display:inline-flex;
+  align-items:center;
+  align-self:flex-start;
+  font-size:12px;
+  font-weight:600;
+  letter-spacing:.03em;
+  color:var(--muted);
+  background-color:var(--tile);
+  border:1px solid var(--line);
+  border-radius:999px;
+  padding:5px 12px;
+}
+
+/* ================= Jamoa ================= */
+/* Rahbar kartasi ikki ustunni egallaydi, xodimlar bittadan */
+.jamoa-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+.member{display:flex;flex-direction:column;align-items:flex-start}
+.member .avatar{margin-bottom:18px}
+.member h3{font-size:18px}
+.member .rol{
+  margin-top:5px;
+  font-size:14px;
+  font-weight:600;
+  color:var(--accent);
+}
+.member > p:not(.rol){margin-top:12px;flex:1}
+.member .chip{margin-top:18px}
+.member-links{margin-top:18px}
+
+/* Rahbar kartasi ajratib ko'rsatiladi */
+.member-boss{
+  grid-column:span 2;
+  border-color:var(--accent-line);
+  background-image:linear-gradient(140deg,var(--accent-soft),transparent 62%);
+  box-shadow:var(--shadow);
+}
+.member-boss h3{font-size:23px;letter-spacing:-.02em}
+.member-boss .rol{font-size:15px}
+
 /* Hamkor kartalari */
 .partner{
   display:flex;
@@ -453,8 +633,12 @@ h2{
 .partner h3{font-size:17px}
 .partner p{margin-top:3px;font-size:14px}
 
-/* Ishlarim kartalari — rasm kelguncha iliq fon va belgi */
+/* Ishlarimiz kartalari — rasm kelguncha iliq fon va belgi */
+.work{display:flex;flex-direction:column;align-items:flex-start}
+.work .chip{margin-bottom:12px}
 .work-img{
+  position:relative;
+  width:100%;
   aspect-ratio:16/10;
   margin-bottom:18px;
   border-radius:14px;
@@ -467,8 +651,24 @@ h2{
   border:1px solid var(--line);
   color:var(--accent);
 }
-.work-img svg{width:44px;height:44px;opacity:.85}
+.work-img > svg{width:44px;height:44px;opacity:.85}
 .work-img img{width:100%;height:100%;object-fit:cover;display:block}
+/* Rasm burchagidagi strelka */
+.work .corner{
+  position:absolute;
+  top:10px;
+  right:10px;
+  width:34px;
+  height:34px;
+  border-radius:11px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background-color:var(--bg-soft);
+  border:1px solid var(--line);
+  color:var(--text);
+}
+.work .corner svg{width:16px;height:16px}
 
 /* Mijozlar fikri */
 .review{display:flex;flex-direction:column;gap:18px}
@@ -487,10 +687,11 @@ h2{
   border-top:1px solid var(--line);
 }
 .avatar{
-  width:42px;
-  height:42px;
+  width:58px;
+  height:58px;
   flex:none;
   border-radius:50%;
+  overflow:hidden;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -498,7 +699,14 @@ h2{
   border:1px solid var(--accent-line);
   color:var(--accent);
   font-weight:700;
+  font-size:19px;
 }
+.avatar svg{width:26px;height:26px;opacity:.85}
+/* Rasm qo'yilsa — doira ichini to'liq egallaydi */
+.avatar img{width:100%;height:100%;object-fit:cover;display:block}
+.avatar-sm{width:42px;height:42px;font-size:16px}
+.avatar-lg{width:74px;height:74px;font-size:25px}
+.avatar-lg svg{width:32px;height:32px}
 .review figcaption b{display:block;font-size:15.5px;line-height:1.3}
 .review .who{display:block;font-size:13.5px;color:var(--muted)}
 
@@ -601,7 +809,19 @@ h2{
 .btn-sm svg{width:16px;height:16px}
 
 /* ================= Aloqa bo'limi ================= */
-.contact{text-align:center;border-bottom:none}
+.contact{text-align:center;border-bottom:none;padding-bottom:100px}
+/* Bo'lim bitta katta shisha karta ichida — hero bilan hamohang */
+.contact-card{
+  position:relative;
+  overflow:hidden;
+  padding:66px 40px 70px;
+  border-radius:40px;
+  background-color:var(--glass);
+  border:1px solid var(--line);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(18px);
+  background-image:radial-gradient(640px 300px at 50% 118%,var(--bg-glow-1),transparent 68%);
+}
 .contact .section-sub{margin:12px auto 0}
 .contact .actions{justify-content:center;margin-top:32px}
 .contact .btn{flex:0 1 262px}
@@ -611,12 +831,42 @@ h2{
   color:var(--text-soft);
 }
 
+/* ================= Futer ================= */
 footer{
-  padding:26px 0 34px;
-  text-align:center;
-  font-size:14px;
+  padding:54px 0 32px;
+  font-size:14.5px;
   color:var(--muted);
   border-top:1px solid var(--line);
+}
+.footer-grid{
+  display:grid;
+  grid-template-columns:1.5fr 1.2fr 1fr;
+  gap:34px;
+}
+.footer-brand p{margin-top:16px;max-width:300px}
+.footer-col h4{
+  font-size:12.5px;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--text);
+  margin-bottom:14px;
+}
+.footer-col a{
+  display:block;
+  padding:5px 0;
+  color:var(--muted);
+  text-decoration:none;
+  transition:color .16s ease;
+}
+.footer-col a:hover{color:var(--accent)}
+.footer-links{display:grid;grid-template-columns:1fr 1fr;gap:0 20px}
+.footer-note{
+  margin-top:38px;
+  padding-top:22px;
+  border-top:1px solid var(--line);
+  text-align:center;
+  font-size:14px;
 }
 
 /* ================= Jonlanish ================= */
@@ -638,32 +888,71 @@ footer{
 
 /* Scroll qilganda bo'limlar pastdan ko'tarilib chiqadi (faqat JS ishlasa).
    "backwards" — animatsiya tugagach karta hover'i bemalol ishlaydi. */
-.js :is(.section-head,.stats,.grid > *,.faq,.contact .wrap):not(.korindi){opacity:0}
+.js :is(.section-head,.stats,.grid > *,.jamoa-grid > *,.faq,.contact-card):not(.korindi){opacity:0}
 .js .korindi{animation:kotarilish .45s ease-out var(--kechikish,0s) backwards}
 
 /* ================= Moslashuvchanlik ================= */
-/* Tor ekranda menyu logotip ostiga tushadi va yon tomonga suriladi */
-@media(max-width:1080px){
-  .topbar .wrap{
-    flex-wrap:wrap;
-    height:auto;
-    row-gap:10px;
-    padding-top:12px;
-    padding-bottom:10px;
+/* Menyu tor joyga sig'sin — havolalar ixchamlashadi */
+@media(max-width:1140px){
+  .nav a{font-size:13.5px;padding:9px 10px}
+  .brand-name{font-size:15.5px}
+}
+
+/* 1024px dan pastda menyu ☰ tugmasi ostidagi panelga o'tadi */
+@media(max-width:1024px){
+  .burger{display:flex}
+  .lang-keng{display:none}
+
+  .menyu{
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    display:grid;
+    gap:14px;
+    padding:16px 22px 22px;
+    max-height:calc(100vh - 76px);
+    overflow-y:auto;
+    /* To'liq fon — orqadagi rasm ko'rinib, matn o'qilmay qolmasin */
+    background-color:var(--bg-soft);
+    border-bottom:1px solid var(--line);
+    box-shadow:var(--shadow);
+    /* Yopiq holat */
+    visibility:hidden;
+    opacity:0;
+    transform:translateY(-10px);
+    transition:opacity .2s ease, transform .2s ease, visibility .2s;
   }
-  .nav{
-    order:3;
-    flex:1 1 100%;
-    overflow-x:auto;
-    scrollbar-width:none;
+  .menyu.ochiq{visibility:visible;opacity:1;transform:none}
+
+  .nav{flex-direction:column;gap:2px;padding:8px;border-radius:20px}
+  .nav a{
+    display:flex;
+    align-items:center;
+    min-height:46px;
+    padding:0 16px;
+    font-size:16px;
+    border-radius:14px;
   }
-  .nav::-webkit-scrollbar{display:none}
-  /* Menyu sig'masa — o'ng chetda "davomi bor" ishorasi (oxiriga surilganda yo'qoladi) */
-  .nav.suriladi:not(.oxirida){
-    -webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 44px),transparent);
-    mask-image:linear-gradient(90deg,#000 calc(100% - 44px),transparent);
-  }
-  section{scroll-margin-top:124px}
+  .menyu-qosh{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .menyu-qosh .btn{flex:1 1 160px}
+  .menyu-qosh .lang-btn{padding:9px 14px;font-size:14px}
+}
+
+/* Telefonda hujjat va stikerlar kichikroq, yengilroq — matn o'qishga xalaqit bermasin */
+@media(max-width:700px){
+  .hujjat{top:88px}
+  .hujjat-varaq{width:104px;opacity:.4}
+  .stiker{opacity:.05}
+  .stiker-1,.stiker-3,.stiker-5{width:82px;height:82px}
+  .stiker-2,.stiker-4,.stiker-6{width:92px;height:92px}
+  html[data-theme="light"] .stiker{opacity:.08}
+}
+
+@media(max-width:980px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .jamoa-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px}
 }
 @media(max-width:860px){
   .hero{padding:28px 0 66px}
@@ -694,8 +983,14 @@ footer{
   .photo img,.photo-fallback{border-radius:21px}
   .photo-fallback{inset:8px}
   .brand-sub{display:none}
-  .topbar-right .btn-sm{display:none}
   .stats{grid-template-columns:1fr}
+  .jamoa-grid{grid-template-columns:1fr}
+  .member-boss{grid-column:auto}
+  .contact{padding-bottom:70px}
+  .contact-card{padding:38px 20px 42px;border-radius:28px}
+  .footer-grid{grid-template-columns:1fr;gap:24px}
+  .footer-links{grid-template-columns:1fr}
+  .burger{width:38px;height:38px;border-radius:12px}
   .stat{display:flex;align-items:center;justify-content:flex-start;gap:14px;text-align:left;padding:16px 20px}
   .stat b{font-size:28px}
   .stat span{margin-top:0}

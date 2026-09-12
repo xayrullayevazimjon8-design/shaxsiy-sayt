@@ -4,7 +4,9 @@
 //  2) Hero rasmi topilmasa — o'rniga ism harflari ko'rsatiladi
 //  3) Menyuda hozir ko'rilayotgan bo'lim belgilanadi
 //  4) Scroll qilganda bo'limlar pastdan ko'tarilib chiqadi
-//  5) Telefonda menyu: faol havola ko'rinib turadi, o'ng chetda ishora
+//  5) Telefonda ☰ menyusi: ochish, yopish, havola bosilganda yopilishi
+//  6) Til: UZ / RU / EN tugmalari (matnlar til.js faylida)
+//  7) Orqa fondagi deklaratsiya hujjati: sahifa surilgan sayin siljiydi va to'ladi
 // =========================================================
 (function () {
   var STORAGE_KEY = 'sayt-rejimi';
@@ -91,10 +93,7 @@
             h.classList.remove('faol');
           });
           var havola = xarita[y.target.id];
-          if (havola) {
-            havola.classList.add('faol');
-            havolaniKorsat(havola);
-          }
+          if (havola) havola.classList.add('faol');
         });
       },
       { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
@@ -105,32 +104,91 @@
     });
   }
 
-  // ---------- 5. Telefonda menyu ----------
-  // Faol havola menyu sig'masa ham ko'rinib tursin (o'rtaga suriladi)
-  function havolaniKorsat(h) {
-    var nav = h.parentNode;
-    if (nav.scrollWidth <= nav.clientWidth) return;
-    nav.scrollLeft = h.offsetLeft - (nav.clientWidth - h.offsetWidth) / 2;
-  }
+  // ---------- 5. Telefonda ☰ menyusi ----------
+  function menyuTugmasi() {
+    var tugma = document.getElementById('burger');
+    var menyu = document.getElementById('menyu');
+    if (!tugma || !menyu) return;
 
-  // Menyu sig'masa — o'ng chetda ishora; oxiriga surilganda ishora yo'qoladi
-  function menyuIshorasi() {
-    var nav = document.querySelector('.nav');
-    if (!nav) return;
-
-    function yangila() {
-      nav.classList.toggle('suriladi', nav.scrollWidth > nav.clientWidth + 1);
-      nav.classList.toggle('oxirida', nav.scrollLeft + nav.clientWidth >= nav.scrollWidth - 2);
+    function yop() {
+      menyu.classList.remove('ochiq');
+      tugma.setAttribute('aria-expanded', 'false');
     }
 
-    nav.addEventListener('scroll', yangila, { passive: true });
-    window.addEventListener('resize', yangila);
+    tugma.addEventListener('click', function () {
+      var ochiq = menyu.classList.toggle('ochiq');
+      tugma.setAttribute('aria-expanded', ochiq ? 'true' : 'false');
+    });
+
+    // Bo'lim tanlansa menyu yopiladi
+    [].forEach.call(menyu.querySelectorAll('a'), function (h) {
+      h.addEventListener('click', yop);
+    });
+
+    // Menyudan tashqariga bosilsa yoki Esc bosilsa — yopiladi
+    document.addEventListener('click', function (e) {
+      if (!menyu.classList.contains('ochiq')) return;
+      if (menyu.contains(e.target) || tugma.contains(e.target)) return;
+      yop();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') yop();
+    });
+
+    // Ekran kengaysa (kompyuter ko'rinishi) — yopiq holatga qaytadi
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 1024) yop();
+    });
+  }
+
+  // ---------- 7. Deklaratsiya hujjatining siljishi ----------
+  // Sahifa qanchaga surilgani 0…1 oralig'ida "--p" ga yoziladi.
+  // Qolganini CSS bajaradi: varaq o'ngdan chapga siljiydi, satrlari to'ladi.
+  function hujjatSiljishi() {
+    var hujjat = document.getElementById('hujjat');
+    if (!hujjat) return;
+
+    var harakatsiz =
+      window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (harakatsiz) return; // CSS da o'rtacha holatda qotib turadi
+
+    var kutilmoqda = false;
+
+    function yangila() {
+      kutilmoqda = false;
+      var yol = document.documentElement.scrollHeight - window.innerHeight;
+      var p = yol > 0 ? window.scrollY / yol : 0;
+      if (p < 0) p = 0;
+      if (p > 1) p = 1;
+      hujjat.style.setProperty('--p', p.toFixed(4));
+    }
+
+    function sora() {
+      if (kutilmoqda) return;
+      kutilmoqda = true;
+      window.requestAnimationFrame(yangila);
+    }
+
+    window.addEventListener('scroll', sora, { passive: true });
+    window.addEventListener('resize', sora);
     yangila();
+  }
+
+  // ---------- 6. Til tugmalari ----------
+  function tilTugmalari() {
+    if (!window.Til) return;
+    window.Til.qoy(window.Til.boshlangich());
+
+    [].forEach.call(document.querySelectorAll('.lang-btn'), function (tugma) {
+      tugma.addEventListener('click', function () {
+        window.Til.qoy(tugma.getAttribute('data-til'));
+      });
+    });
   }
 
   // ---------- 4. Bo'limlarning paydo bo'lishi ----------
   // Ro'yxat style.css dagi "Jonlanish" qismi bilan bir xil bo'lishi kerak
-  var JONLI = '.section-head, .stats, .grid > *, .faq, .contact .wrap';
+  var JONLI = '.section-head, .stats, .grid > *, .jamoa-grid > *, .faq, .contact-card';
 
   function paydoBolish() {
     var elementlar = [].slice.call(document.querySelectorAll(JONLI));
@@ -145,7 +203,7 @@
     }
 
     // Bir qatordagi kartalar ketma-ket chiqsin
-    [].forEach.call(document.querySelectorAll('.grid'), function (grid) {
+    [].forEach.call(document.querySelectorAll('.grid, .jamoa-grid'), function (grid) {
       [].forEach.call(grid.children, function (karta, i) {
         karta.style.setProperty('--kechikish', (i % 3) * 0.07 + 's');
       });
@@ -176,9 +234,11 @@
         rejimniQoy(hozirgi === 'light' ? 'dark' : 'light');
       });
     }
+    tilTugmalari();
     rasmniTekshir();
     menyuKuzatuvi();
     paydoBolish();
-    menyuIshorasi();
+    menyuTugmasi();
+    hujjatSiljishi();
   });
 })();

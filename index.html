@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Raxmonov G'ulombek — Deklarant</title>
-<meta name="description" content="Raxmonov G'ulombek — deklarant. Chegaradan olib kiriladigan yuklar uchun bojxona hujjatlarini tayyorlash.">
+<title>Prestigious declarants — nufuzli deklarantlar</title>
+<meta name="description" content="Prestigious declarants — chegaradan olib kiriladigan yuklar uchun bojxona hujjatlarini tayyorlaymiz.">
 <meta name="theme-color" content="#1a130d">
 
 <!-- Belgi (favicon) -->
@@ -16,48 +16,132 @@
      Sayt manzili o'zgarsa, og:url va og:image dagi manzilni ham almashtiring. -->
 <meta property="og:type" content="website">
 <meta property="og:locale" content="uz_UZ">
-<meta property="og:site_name" content="Raxmonov G'ulombek">
-<meta property="og:title" content="Raxmonov G'ulombek — Deklarant">
-<meta property="og:description" content="Chegaradan olib kiriladigan yuklar uchun bojxona hujjatlarini tayyorlayman. Qo'ng'iroq qiling yoki Telegramda yozing.">
-<meta property="og:url" content="https://xayrullayevazimjon8-design.github.io/shaxsiy-sayt/">
-<meta property="og:image" content="https://xayrullayevazimjon8-design.github.io/shaxsiy-sayt/og-image.jpg">
+<meta property="og:locale:alternate" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
+<meta property="og:site_name" content="Prestigious declarants">
+<meta property="og:title" content="Prestigious declarants — nufuzli deklarantlar">
+<meta property="og:description" content="Chegaradan olib kiriladigan yuklar uchun bojxona hujjatlarini tayyorlaymiz. Qo'ng'iroq qiling yoki Telegramda yozing.">
+<meta property="og:url" content="https://gulomiy.uz/">
+<meta property="og:image" content="https://gulomiy.uz/og-image.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Raxmonov G'ulombek — deklarant">
+<meta property="og:image:alt" content="Prestigious declarants — nufuzli deklarantlar">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="style.css">
+<script src="til.js"></script>
 <script src="script.js"></script>
 </head>
 <body>
 
-<!-- ============ Yuqori panel ============ -->
+<!-- ============ Orqa fon ============
+     Sohaga oid kichik belgilar (stikerlar). Matn ortida turadi, bosilmaydi.
+     Yangi belgi qo'shsangiz, joyini style.css dagi ".stiker-N" dan o'zgartiring. -->
+<div class="fon" aria-hidden="true">
+  <!-- Qadoq / yuk -->
+  <span class="stiker stiker-1">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5V8z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg>
+  </span>
+  <!-- Yuk mashinasi -->
+  <span class="stiker stiker-2">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5h13v11H1zM14 9h4l3 3.5V16h-7z"/><circle cx="5.5" cy="18" r="2"/><circle cx="17.5" cy="18" r="2"/></svg>
+  </span>
+  <!-- Muhr -->
+  <span class="stiker stiker-3">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12 2.6 2.6L16 9.5"/></svg>
+  </span>
+  <!-- Konteyner / ombor -->
+  <span class="stiker stiker-4">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21V8l9-5 9 5v13z"/><path d="M8 21V12h8v9"/></svg>
+  </span>
+  <!-- Globus — chegara oshib o'tuvchi yuk -->
+  <span class="stiker stiker-5">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 2.5 15.4 0 18-2.5-2.6-2.5-15.4 0-18z"/></svg>
+  </span>
+  <!-- Tarozi — boj hisobi -->
+  <span class="stiker stiker-6">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M7 20h10M12 6l7 2-3.5 5h7L19 8M12 6 5 8l3.5 5h-7L5 8"/></svg>
+  </span>
+</div>
+
+<!-- ============ Deklaratsiya hujjati ============
+     Sahifa ochilganda yuqori o'ng burchakda turadi; pastga tushgan sayin
+     yuqori chap burchakka siljiydi va satrlari asta to'la boradi.
+     Harakatni script.js dagi "hujjatSiljishi" boshqaradi. -->
+<div class="hujjat" id="hujjat" aria-hidden="true">
+  <div class="hujjat-varaq">
+    <svg viewBox="0 0 120 160" fill="none">
+      <!-- Varaq -->
+      <rect x="3" y="3" width="114" height="154" rx="9" fill="var(--bg-soft)" stroke="var(--accent)" stroke-width="1.8"/>
+      <!-- Sarlavha -->
+      <rect class="hujjat-satr" style="--k:.00" x="16" y="18" width="50" height="7" rx="3.5" fill="var(--accent)"/>
+      <rect class="hujjat-satr" style="--k:.06" x="16" y="31" width="30" height="4" rx="2" fill="currentColor"/>
+      <!-- Satrlar asta to'ladi -->
+      <rect class="hujjat-satr" style="--k:.14" x="16" y="48" width="88" height="4.5" rx="2.25" fill="currentColor"/>
+      <rect class="hujjat-satr" style="--k:.22" x="16" y="60" width="72" height="4.5" rx="2.25" fill="currentColor"/>
+      <rect class="hujjat-satr" style="--k:.30" x="16" y="72" width="88" height="4.5" rx="2.25" fill="currentColor"/>
+      <rect class="hujjat-satr" style="--k:.38" x="16" y="84" width="58" height="4.5" rx="2.25" fill="currentColor"/>
+      <rect class="hujjat-satr" style="--k:.46" x="16" y="96" width="80" height="4.5" rx="2.25" fill="currentColor"/>
+      <!-- Jadval katakchalari -->
+      <rect class="hujjat-satr" style="--k:.54" x="16" y="110" width="34" height="16" rx="4" stroke="var(--accent-line)" stroke-width="1.4"/>
+      <rect class="hujjat-satr" style="--k:.60" x="54" y="110" width="24" height="16" rx="4" stroke="var(--accent-line)" stroke-width="1.4"/>
+      <!-- Muhr — oxirida bosiladi -->
+      <g class="hujjat-muhr" style="--k:.70" transform="rotate(-9 88 130)">
+        <circle cx="88" cy="130" r="15" stroke="var(--accent-2)" stroke-width="2"/>
+        <path d="m81 130 5 5 9-11" stroke="var(--accent-2)" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </g>
+    </svg>
+  </div>
+</div>
+
+<!-- ============ Yuqori panel ============
+     Menyuda barcha bo'limlar bor. Telefonda menyu ☰ tugmasi ostiga yashiriladi. -->
 <header class="topbar">
   <div class="wrap">
     <a class="brand" href="#bosh">
-      <span class="logo-mark">RG</span>
+      <span class="logo-mark">PD</span>
       <span>
-        <span class="brand-name">Raxmonov G'ulombek</span><br>
-        <span class="brand-sub">Deklarant</span>
+        <span class="brand-name">Prestigious declarants</span><br>
+        <span class="brand-sub" data-i18n="brand.sub">Deklarantlar jamoasi</span>
       </span>
     </a>
 
-    <nav class="nav" aria-label="Bo'limlar">
-      <a href="#xizmatlar">Xizmatlar</a>
-      <a href="#ishlarim">Ishlarim</a>
-      <a href="#fikrlar">Fikrlar</a>
-      <a href="#hamkorlar">Hamkorlar</a>
-      <a href="#savollar">Savollar</a>
-      <a href="#aloqa">Aloqa</a>
-    </nav>
+    <div class="menyu" id="menyu">
+      <nav class="nav" aria-label="Bo'limlar">
+        <a href="#bosh" data-i18n="nav.bosh">Bosh sahifa</a>
+        <a href="#xizmatlar" data-i18n="nav.xizmatlar">Xizmatlar</a>
+        <a href="#jamoa" data-i18n="nav.jamoa">Jamoa</a>
+        <a href="#ishlarimiz" data-i18n="nav.ishlar">Ishlarimiz</a>
+        <a href="#fikrlar" data-i18n="nav.fikrlar">Fikrlar</a>
+        <a href="#hamkorlar" data-i18n="nav.hamkorlar">Hamkorlar</a>
+        <a href="#savollar" data-i18n="nav.savollar">Savollar</a>
+        <a href="#aloqa" data-i18n="nav.aloqa">Aloqa</a>
+      </nav>
+
+      <!-- Telefonda menyu ichida ko'rinadi -->
+      <div class="menyu-qosh">
+        <div class="lang" role="group" data-i18n-aria="topbar.lang">
+          <button class="lang-btn" type="button" data-til="uz">UZ</button>
+          <button class="lang-btn" type="button" data-til="ru">RU</button>
+          <button class="lang-btn" type="button" data-til="en">EN</button>
+        </div>
+        <a class="btn btn-primary btn-sm" href="#aloqa" data-i18n="topbar.cta">Bog'lanish</a>
+      </div>
+    </div>
 
     <div class="topbar-right">
-      <a class="btn btn-ghost btn-sm" href="#aloqa">
-        Bog'lanish
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
-      </a>
-      <button class="theme-toggle" type="button" aria-label="Rejimni almashtirish" title="Qorong'i / yorug' rejim">
+      <div class="lang lang-keng" role="group" data-i18n-aria="topbar.lang">
+        <button class="lang-btn" type="button" data-til="uz">UZ</button>
+        <button class="lang-btn" type="button" data-til="ru">RU</button>
+        <button class="lang-btn" type="button" data-til="en">EN</button>
+      </div>
+
+      <button class="theme-toggle" type="button" data-i18n-aria="topbar.theme" data-i18n-title="topbar.theme" aria-label="Rejimni almashtirish" title="Qorong'i / yorug' rejim">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+
+      <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menyu" data-i18n-aria="topbar.menu" aria-label="Menyu">
+        <span></span><span></span><span></span>
       </button>
     </div>
   </div>
@@ -69,15 +153,21 @@
   <div class="hero-panel">
 
     <div class="hero-text">
-      <p class="eyebrow">Salom, men</p>
-      <h1>Raxmonov G'ulombek</h1>
-      <p class="kasb">Deklarant</p>
+      <span class="pill">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.4 6.9L21 9.9l-5.2 4.3L17.4 21 12 17.4 6.6 21l1.6-6.8L3 9.9l6.6-1z"/></svg>
+        <span data-i18n="hero.badge">2+ yil tajriba · 50+ mijoz</span>
+      </span>
 
-      <p class="lead">Chegaradan olib kiriladigan yuklar uchun bojxona hujjatlarini tayyorlayman — yukingiz kechikmasdan, ortiqcha xarajatsiz o'tishi uchun.</p>
+      <!-- Rahbar ismi: ma'lumot kelganda "hero.h1" o'rniga haqiqiy ism yoziladi -->
+      <p class="eyebrow" data-i18n="hero.eyebrow">Jamoa rahbari</p>
+      <h1 data-i18n="hero.h1">Rahbar ismi</h1>
+      <p class="kasb" data-i18n="hero.kasb">Deklarant</p>
+
+      <p class="lead" data-i18n="hero.lead">Chegaradan olib kiriladigan yuklar uchun bojxona hujjatlarini tayyorlaymiz — yukingiz kechikmasdan, ortiqcha xarajatsiz o'tishi uchun.</p>
 
       <div class="actions">
         <a class="btn btn-primary" href="#xizmatlar">
-          Xizmatlarni ko'rish
+          <span data-i18n="hero.btn1">Xizmatlarni ko'rish</span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
         </a>
         <a class="btn btn-ghost" href="tel:+998972075960">
@@ -87,33 +177,34 @@
       </div>
 
       <div class="trusted">
-        <p class="trusted-label">Kimlar bilan ishlayman</p>
+        <p class="trusted-label" data-i18n="hero.trusted">Kimlar bilan ishlaymiz</p>
         <div class="trusted-row">
-          <span>Logistika kompaniyalari</span>
-          <span>Import qiluvchilar</span>
-          <span>Bojxona omborlari</span>
-          <span>Sertifikat markazlari</span>
+          <span data-i18n="hero.t1">Logistika kompaniyalari</span>
+          <span data-i18n="hero.t2">Import qiluvchilar</span>
+          <span data-i18n="hero.t3">Bojxona omborlari</span>
+          <span data-i18n="hero.t4">Sertifikat markazlari</span>
         </div>
       </div>
     </div>
 
-    <!-- Rasm: "hero.jpg" faylini shu papkaga tashlasangiz avtomatik chiqadi -->
+    <!-- Rahbar rasmi: "rahbar.jpg" faylini shu papkaga tashlasangiz avtomatik chiqadi.
+         Fayl bo'lmasa, o'rniga pastdagi namuna ko'rinadi. -->
     <div class="photo-wrap">
       <div class="photo" id="heroPhoto">
-        <img src="hero.jpg" alt="Raxmonov G'ulombek">
+        <img src="rahbar.jpg" alt="">
         <div class="photo-fallback">
-          <b>RG</b>
-          <span>Deklarant</span>
+          <b>PD</b>
+          <span data-i18n="hero.namuna">Rahbar rasmi — namuna</span>
         </div>
       </div>
 
       <div class="float float-tajriba">
         <b>2+</b>
-        <span>Yillik<br>tajriba</span>
+        <span data-i18n-html="hero.float1">Yillik<br>tajriba</span>
       </div>
 
       <div class="float float-natija">
-        <p class="label">Qayta murojaat</p>
+        <p class="label" data-i18n="hero.float2">Qayta murojaat</p>
         <b>80%</b>
         <svg viewBox="0 0 180 40" fill="none" preserveAspectRatio="none" aria-hidden="true">
           <path d="M2 34 L26 30 L48 32 L70 22 L92 25 L114 14 L136 17 L158 7 L178 3"
@@ -134,9 +225,10 @@
 <section id="statistika">
   <div class="wrap">
     <div class="stats">
-      <div class="stat"><b>2+</b><span>yil tajriba</span></div>
-      <div class="stat"><b>50+</b><span>mijoz</span></div>
-      <div class="stat"><b>80%</b><span>qayta murojaat</span></div>
+      <div class="stat"><b>2+</b><span data-i18n="stat.1">yil tajriba</span></div>
+      <div class="stat"><b>50+</b><span data-i18n="stat.2">mijoz</span></div>
+      <div class="stat"><b>80%</b><span data-i18n="stat.3">qayta murojaat</span></div>
+      <div class="stat"><b>5</b><span data-i18n="stat.4">jamoa a'zosi</span></div>
     </div>
   </div>
 </section>
@@ -145,85 +237,173 @@
 <section id="xizmatlar">
   <div class="wrap">
     <div class="section-head">
-      <span class="badge">Xizmatlar</span>
-      <h2>Nima bilan yordam beraman</h2>
-      <p class="section-sub">Yukingiz chegaradan muammosiz o'tishi uchun kerak bo'ladigan barcha hujjat ishlarini o'z zimmamga olaman.</p>
+      <span class="badge" data-i18n="xiz.badge">Xizmatlar</span>
+      <h2 data-i18n="xiz.h2">Nima bilan yordam beramiz</h2>
+      <p class="section-sub" data-i18n="xiz.sub">Yukingiz chegaradan muammosiz o'tishi uchun kerak bo'ladigan barcha hujjat ishlarini o'z zimmamizga olamiz.</p>
     </div>
 
     <div class="grid">
       <article class="card">
         <div class="num">01</div>
-        <h3>Bojxona deklaratsiyasini rasmiylashtirish</h3>
-        <p>Yuk bo'yicha deklaratsiyani to'ldirish va bojxona organiga taqdim etish.</p>
+        <h3 data-i18n="xiz.1t">Bojxona deklaratsiyasini rasmiylashtirish</h3>
+        <p data-i18n="xiz.1p">Yuk bo'yicha deklaratsiyani to'ldirish va bojxona organiga taqdim etish.</p>
       </article>
 
       <article class="card">
         <div class="num">02</div>
-        <h3>Yuk hujjatlarini tayyorlash</h3>
-        <p>Shartnoma, invoys, qadoqlash varaqasi va transport hujjatlarini tekshirib, to'g'ri holatga keltirish.</p>
+        <h3 data-i18n="xiz.2t">Yuk hujjatlarini tayyorlash</h3>
+        <p data-i18n="xiz.2p">Shartnoma, invoys, qadoqlash varaqasi va transport hujjatlarini tekshirib, to'g'ri holatga keltirish.</p>
       </article>
 
       <article class="card">
         <div class="num">03</div>
-        <h3>TIF TN kodini aniqlash</h3>
-        <p>Tovaringizga mos kodni to'g'ri tanlash — bu boj stavkasi va keraksiz jarimalardan saqlaydi.</p>
+        <h3 data-i18n="xiz.3t">TIF TN kodini aniqlash</h3>
+        <p data-i18n="xiz.3p">Tovaringizga mos kodni to'g'ri tanlash — bu boj stavkasi va keraksiz jarimalardan saqlaydi.</p>
       </article>
 
       <article class="card">
         <div class="num">04</div>
-        <h3>Bojxona to'lovlarini hisoblash</h3>
-        <p>Boj, aksiz va QQS summasini oldindan hisoblab beraman — xarajatni yuk kelishidan avval bilasiz.</p>
+        <h3 data-i18n="xiz.4t">Bojxona to'lovlarini hisoblash</h3>
+        <p data-i18n="xiz.4p">Boj, aksiz va QQS summasini oldindan hisoblab beramiz — xarajatni yuk kelishidan avval bilasiz.</p>
       </article>
 
       <article class="card">
         <div class="num">05</div>
-        <h3>Sertifikat va ruxsatnomalar</h3>
-        <p>Muvofiqlik sertifikati va boshqa ruxsat hujjatlarini rasmiylashtirishda yo'l ko'rsataman.</p>
+        <h3 data-i18n="xiz.5t">Sertifikat va ruxsatnomalar</h3>
+        <p data-i18n="xiz.5p">Muvofiqlik sertifikati va boshqa ruxsat hujjatlarini rasmiylashtirishda yo'l ko'rsatamiz.</p>
       </article>
 
       <article class="card">
         <div class="num">06</div>
-        <h3>Maslahat va kuzatuv</h3>
-        <p>Import jarayonining har bosqichida bog'lanib turaman, savollaringizga javob beraman.</p>
+        <h3 data-i18n="xiz.6t">Maslahat va kuzatuv</h3>
+        <p data-i18n="xiz.6p">Import jarayonining har bosqichida bog'lanib turamiz, savollaringizga javob beramiz.</p>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ============ Ishlarim ============
-     Namuna: haqiqiy ish kelganda nom va izohni almashtiring.
-     Rasm tayyor bo'lsa, "work-img" ichidagi belgi o'rniga <img> qo'yiladi. -->
-<section id="ishlarim">
+<!-- ============ Jamoa ============
+     Jamoa 5 kishi: 1 rahbar + 4 xodim.
+     Ism, lavozim va rasm hozircha bo'sh (namuna) — ma'lumot kelganda to'ldiriladi.
+     Rasm qo'shish: kartadagi <div class="avatar"> ichiga
+     <img src="xodim-1.jpg" alt="Xodim ismi"> qo'yiladi. -->
+<section id="jamoa">
   <div class="wrap">
     <div class="section-head">
-      <span class="badge">Ishlarim</span>
-      <h2>Bajargan ishlarimdan namunalar</h2>
-      <p class="section-sub">Turli yuklar bo'yicha bajargan ishlarimdan bir nechtasi.</p>
+      <span class="badge" data-i18n="jamoa.badge">Jamoa</span>
+      <h2 data-i18n="jamoa.h2">Ish ustida turgan jamoa</h2>
+      <p class="section-sub" data-i18n="jamoa.sub">Hujjatlaringiz bilan besh kishilik jamoa shug'ullanadi — bir kishiga bog'lanib qolmaysiz, ish to'xtamaydi.</p>
+    </div>
+
+    <div class="jamoa-grid">
+      <!-- Rahbar — o'rni bo'sh turadi.
+           Ma'lumot kelganda: avatar ichiga <img src="rahbar.jpg" alt="Rahbar ismi">,
+           h3 ga haqiqiy ism, "rol" ga lavozim yoziladi. -->
+      <article class="card member member-boss">
+        <div class="avatar avatar-lg">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>
+        </div>
+        <h3 data-i18n="jamoa.boss.ism">Rahbar ismi</h3>
+        <p class="rol" data-i18n="jamoa.boss.rol">Rahbar · deklarant</p>
+        <p data-i18n="jamoa.boss.matn">Rahbar haqidagi ma'lumot va rasm tez orada qo'shiladi.</p>
+        <span class="chip" data-i18n="jamoa.soon">Ma'lumot tayyorlanmoqda</span>
+      </article>
+
+      <!-- Xodimlar: 4 ta -->
+      <article class="card member">
+        <div class="avatar">
+          <img src="hero.jpg" alt="Raxmonov G'ulombek">
+        </div>
+        <h3>Raxmonov G'ulombek</h3>
+        <p class="rol" data-i18n="jamoa.gulom.rol">Deklarant</p>
+        <p data-i18n="jamoa.gulom.matn">Yuk hujjatlarini tayyorlash va deklaratsiyani rasmiylashtirish bilan shug'ullanadi.</p>
+        <div class="member-links">
+          <a class="btn btn-ghost btn-sm" href="tel:+998972075960">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            +998 97 207 59 60
+          </a>
+        </div>
+      </article>
+      <article class="card member">
+        <div class="avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>
+        </div>
+        <h3 data-i18n="jamoa.ism">Xodim ismi</h3>
+        <p class="rol" data-i18n="jamoa.rol">Lavozim</p>
+        <p data-i18n="jamoa.matn">Xodim haqidagi qisqa ma'lumot keyin to'ldiriladi.</p>
+        <span class="chip" data-i18n="jamoa.soon">Ma'lumot tayyorlanmoqda</span>
+      </article>
+
+      <article class="card member">
+        <div class="avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>
+        </div>
+        <h3 data-i18n="jamoa.ism">Xodim ismi</h3>
+        <p class="rol" data-i18n="jamoa.rol">Lavozim</p>
+        <p data-i18n="jamoa.matn">Xodim haqidagi qisqa ma'lumot keyin to'ldiriladi.</p>
+        <span class="chip" data-i18n="jamoa.soon">Ma'lumot tayyorlanmoqda</span>
+      </article>
+
+      <article class="card member">
+        <div class="avatar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>
+        </div>
+        <h3 data-i18n="jamoa.ism">Xodim ismi</h3>
+        <p class="rol" data-i18n="jamoa.rol">Lavozim</p>
+        <p data-i18n="jamoa.matn">Xodim haqidagi qisqa ma'lumot keyin to'ldiriladi.</p>
+        <span class="chip" data-i18n="jamoa.soon">Ma'lumot tayyorlanmoqda</span>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ Ishlarimiz ============
+     Namuna: haqiqiy ish kelganda nom va izohni almashtiring.
+     Rasm tayyor bo'lsa, "work-img" ichidagi belgi o'rniga <img> qo'yiladi. -->
+<section id="ishlarimiz">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="badge" data-i18n="ish.badge">Ishlarimiz</span>
+      <h2 data-i18n="ish.h2">Bajargan ishlarimizdan namunalar</h2>
+      <p class="section-sub" data-i18n="ish.sub">Turli yuklar bo'yicha bajargan ishlarimiz shu yerda joylanadi.</p>
     </div>
 
     <div class="grid">
       <article class="card work">
         <div class="work-img" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8 12 3 3 8v8l9 5 9-5V8z"/><path d="m3 8 9 5 9-5M12 13v8"/></svg>
+          <span class="corner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </span>
         </div>
-        <h3>Ish nomi</h3>
-        <p>Qisqa izoh: qanday yuk edi, qaysi hujjatlar tayyorlandi va natija qanday bo'ldi.</p>
+        <span class="chip" data-i18n="ish.chip">Tayyorlanmoqda</span>
+        <h3 data-i18n="ish.nom">Ish nomi</h3>
+        <p data-i18n="ish.izoh">Qisqa izoh: qanday yuk edi, qaysi hujjatlar tayyorlandi va natija qanday bo'ldi.</p>
       </article>
 
       <article class="card work">
         <div class="work-img" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 5h13v11H1zM14 9h4l3 3.5V16h-7z"/><circle cx="5.5" cy="18" r="2"/><circle cx="17.5" cy="18" r="2"/></svg>
+          <span class="corner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </span>
         </div>
-        <h3>Ish nomi</h3>
-        <p>Qisqa izoh: qanday yuk edi, qaysi hujjatlar tayyorlandi va natija qanday bo'ldi.</p>
+        <span class="chip" data-i18n="ish.chip">Tayyorlanmoqda</span>
+        <h3 data-i18n="ish.nom">Ish nomi</h3>
+        <p data-i18n="ish.izoh">Qisqa izoh: qanday yuk edi, qaysi hujjatlar tayyorlandi va natija qanday bo'ldi.</p>
       </article>
 
       <article class="card work">
         <div class="work-img" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
+          <span class="corner">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg>
+          </span>
         </div>
-        <h3>Ish nomi</h3>
-        <p>Qisqa izoh: qanday yuk edi, qaysi hujjatlar tayyorlandi va natija qanday bo'ldi.</p>
+        <span class="chip" data-i18n="ish.chip">Tayyorlanmoqda</span>
+        <h3 data-i18n="ish.nom">Ish nomi</h3>
+        <p data-i18n="ish.izoh">Qisqa izoh: qanday yuk edi, qaysi hujjatlar tayyorlandi va natija qanday bo'ldi.</p>
       </article>
     </div>
   </div>
@@ -235,36 +415,36 @@
 <section id="fikrlar">
   <div class="wrap">
     <div class="section-head">
-      <span class="badge">Mijozlar fikri</span>
-      <h2>Mijozlar nima deydi</h2>
-      <p class="section-sub">Mijozlarimning 80% i qayta murojaat qiladi. Ularning o'z so'zlari:</p>
+      <span class="badge" data-i18n="fikr.badge">Mijozlar fikri</span>
+      <h2 data-i18n="fikr.h2">Mijozlar nima deydi</h2>
+      <p class="section-sub" data-i18n="fikr.sub">Mijozlarimizning 80% i qayta murojaat qiladi. Ularning o'z so'zlari shu yerda chiqadi.</p>
     </div>
 
     <div class="grid">
       <figure class="card review">
         <svg class="quote" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6C6.7 6 4 8.7 4 12v6h6v-6H7c0-1.7 1.3-3 3-3V6zm10 0c-3.3 0-6 2.7-6 6v6h6v-6h-3c0-1.7 1.3-3 3-3V6z"/></svg>
-        <blockquote>Bu yerga mijozning haqiqiy fikri yoziladi — 1–2 qisqa gap.</blockquote>
+        <blockquote data-i18n="fikr.matn">Bu yerga mijozning haqiqiy fikri yoziladi — 1–2 qisqa gap.</blockquote>
         <figcaption>
-          <span class="avatar">M</span>
-          <span><b>Mijoz ismi</b><span class="who">Kompaniya yoki kasbi</span></span>
+          <span class="avatar avatar-sm">M</span>
+          <span><b data-i18n="fikr.ism">Mijoz ismi</b><span class="who" data-i18n="fikr.who">Kompaniya yoki kasbi</span></span>
         </figcaption>
       </figure>
 
       <figure class="card review">
         <svg class="quote" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6C6.7 6 4 8.7 4 12v6h6v-6H7c0-1.7 1.3-3 3-3V6zm10 0c-3.3 0-6 2.7-6 6v6h6v-6h-3c0-1.7 1.3-3 3-3V6z"/></svg>
-        <blockquote>Bu yerga mijozning haqiqiy fikri yoziladi — 1–2 qisqa gap.</blockquote>
+        <blockquote data-i18n="fikr.matn">Bu yerga mijozning haqiqiy fikri yoziladi — 1–2 qisqa gap.</blockquote>
         <figcaption>
-          <span class="avatar">M</span>
-          <span><b>Mijoz ismi</b><span class="who">Kompaniya yoki kasbi</span></span>
+          <span class="avatar avatar-sm">M</span>
+          <span><b data-i18n="fikr.ism">Mijoz ismi</b><span class="who" data-i18n="fikr.who">Kompaniya yoki kasbi</span></span>
         </figcaption>
       </figure>
 
       <figure class="card review">
         <svg class="quote" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 6C6.7 6 4 8.7 4 12v6h6v-6H7c0-1.7 1.3-3 3-3V6zm10 0c-3.3 0-6 2.7-6 6v6h6v-6h-3c0-1.7 1.3-3 3-3V6z"/></svg>
-        <blockquote>Bu yerga mijozning haqiqiy fikri yoziladi — 1–2 qisqa gap.</blockquote>
+        <blockquote data-i18n="fikr.matn">Bu yerga mijozning haqiqiy fikri yoziladi — 1–2 qisqa gap.</blockquote>
         <figcaption>
-          <span class="avatar">M</span>
-          <span><b>Mijoz ismi</b><span class="who">Kompaniya yoki kasbi</span></span>
+          <span class="avatar avatar-sm">M</span>
+          <span><b data-i18n="fikr.ism">Mijoz ismi</b><span class="who" data-i18n="fikr.who">Kompaniya yoki kasbi</span></span>
         </figcaption>
       </figure>
     </div>
@@ -277,57 +457,57 @@
 <section id="hamkorlar">
   <div class="wrap">
     <div class="section-head">
-      <span class="badge">Hamkorlar</span>
-      <h2>Hamkorlarimiz</h2>
-      <p class="section-sub">Ish jarayonida bir necha yo'nalishdagi kompaniyalar bilan birgalikda ishlaymiz.</p>
+      <span class="badge" data-i18n="hamkor.badge">Hamkorlar</span>
+      <h2 data-i18n="hamkor.h2">Hamkorlarimiz</h2>
+      <p class="section-sub" data-i18n="hamkor.sub">Ish jarayonida bir necha yo'nalishdagi kompaniyalar bilan birgalikda ishlaymiz.</p>
     </div>
 
     <div class="grid">
       <article class="card partner">
         <div class="logo">LK</div>
         <div>
-          <h3>Kompaniya nomi</h3>
-          <p>Logistika kompaniyasi</p>
+          <h3 data-i18n="hamkor.nom">Kompaniya nomi</h3>
+          <p data-i18n="hamkor.1">Logistika kompaniyasi</p>
         </div>
       </article>
 
       <article class="card partner">
         <div class="logo">TE</div>
         <div>
-          <h3>Kompaniya nomi</h3>
-          <p>Transport-ekspeditsiya xizmati</p>
+          <h3 data-i18n="hamkor.nom">Kompaniya nomi</h3>
+          <p data-i18n="hamkor.2">Transport-ekspeditsiya xizmati</p>
         </div>
       </article>
 
       <article class="card partner">
         <div class="logo">SM</div>
         <div>
-          <h3>Kompaniya nomi</h3>
-          <p>Sertifikatlashtirish markazi</p>
+          <h3 data-i18n="hamkor.nom">Kompaniya nomi</h3>
+          <p data-i18n="hamkor.3">Sertifikatlashtirish markazi</p>
         </div>
       </article>
 
       <article class="card partner">
         <div class="logo">BO</div>
         <div>
-          <h3>Kompaniya nomi</h3>
-          <p>Bojxona ombori</p>
+          <h3 data-i18n="hamkor.nom">Kompaniya nomi</h3>
+          <p data-i18n="hamkor.4">Bojxona ombori</p>
         </div>
       </article>
 
       <article class="card partner">
         <div class="logo">BN</div>
         <div>
-          <h3>Kompaniya nomi</h3>
-          <p>Bank — valyuta nazorati</p>
+          <h3 data-i18n="hamkor.nom">Kompaniya nomi</h3>
+          <p data-i18n="hamkor.5">Bank — valyuta nazorati</p>
         </div>
       </article>
 
       <article class="card partner">
         <div class="logo">SK</div>
         <div>
-          <h3>Kompaniya nomi</h3>
-          <p>Sug'urta kompaniyasi</p>
+          <h3 data-i18n="hamkor.nom">Kompaniya nomi</h3>
+          <p data-i18n="hamkor.6">Sug'urta kompaniyasi</p>
         </div>
       </article>
     </div>
@@ -335,34 +515,49 @@
 </section>
 
 <!-- ============ Savol-javob ============
-     Javoblarni tekshirib, kerak bo'lsa aniqlashtiring. -->
+     Javob matnlari til.js ichida: savol.q1 … savol.q7 / savol.a1 … savol.a7 -->
 <section id="savollar">
   <div class="wrap">
     <div class="section-head">
-      <span class="badge">Savol-javob</span>
-      <h2>Ko'p beriladigan savollar</h2>
-      <p class="section-sub">Mijozlar eng ko'p so'raydigan savollarga qisqa javoblar.</p>
+      <span class="badge" data-i18n="savol.badge">Savol-javob</span>
+      <h2 data-i18n="savol.h2">Ko'p beriladigan savollar</h2>
+      <p class="section-sub" data-i18n="savol.sub">Mijozlar eng ko'p so'raydigan savollarga qisqa javoblar.</p>
     </div>
 
     <div class="faq">
       <details class="faq-item" name="savollar">
-        <summary>Qanday hujjatlar kerak bo'ladi?</summary>
-        <p>Odatda tashqi savdo shartnomasi, invoys, qadoqlash varaqasi va transport hujjati kerak bo'ladi. Aniq ro'yxatni yukingiz turiga qarab aytib beraman.</p>
+        <summary><span data-i18n="savol.q1">Bojxona rasmiylashtirish uchun qanday hujjatlar kerak?</span></summary>
+        <p data-i18n="savol.a1">Odatda tashqi savdo shartnomasi, invoys, qadoqlash varaqasi va transport hujjati (CMR yoki TIR) kerak bo'ladi.</p>
       </details>
 
       <details class="faq-item" name="savollar">
-        <summary>Rasmiylashtirish qancha vaqt oladi?</summary>
-        <p>Muddat yuk turiga va hujjatlar qanchalik tayyorligiga bog'liq. Hujjatlarni ko'rib chiqqach, taxminiy muddatni oldindan aytaman.</p>
+        <summary><span data-i18n="savol.q2">Rasmiylashtirish qancha vaqt oladi?</span></summary>
+        <p data-i18n="savol.a2">Hujjatlar to'liq va to'g'ri bo'lsa, deklaratsiya bir ish kuni ichida topshiriladi.</p>
       </details>
 
       <details class="faq-item" name="savollar">
-        <summary>Xizmat narxi qancha?</summary>
-        <p>Narx yuk va hujjatlar hajmiga qarab kelishiladi. Aniq narxni bilish uchun qo'ng'iroq qiling yoki Telegramda yozing.</p>
+        <summary><span data-i18n="savol.q3">Xizmat narxi qanday belgilanadi?</span></summary>
+        <p data-i18n="savol.a3">Narx yuk turiga, hujjatlar hajmiga va ish shoshilinchligiga qarab kelishiladi.</p>
       </details>
 
       <details class="faq-item" name="savollar">
-        <summary>Qanday bog'lanaman?</summary>
-        <p><a href="tel:+998972075960">+998 97 207 59 60</a> raqamiga qo'ng'iroq qiling yoki Telegramda <a href="https://t.me/Raxmonov_01082002" target="_blank" rel="noopener">@Raxmonov_01082002</a> ga yozing.</p>
+        <summary><span data-i18n="savol.q4">TIF TN kodi noto'g'ri tanlansa nima bo'ladi?</span></summary>
+        <p data-i18n="savol.a4">Kod boj stavkasini belgilaydi. Noto'g'ri kod ortiqcha to'lov yoki jarimaga olib keladi.</p>
+      </details>
+
+      <details class="faq-item" name="savollar">
+        <summary><span data-i18n="savol.q5">Bojxona to'lovlarini yuk kelishidan oldin bilsam bo'ladimi?</span></summary>
+        <p data-i18n="savol.a5">Ha. Invoys va tovar nomi bo'lsa, boj, aksiz va QQS summasini oldindan hisoblab beramiz.</p>
+      </details>
+
+      <details class="faq-item" name="savollar">
+        <summary><span data-i18n="savol.q6">Boshqa viloyatdan turib ishlash mumkinmi?</span></summary>
+        <p data-i18n="savol.a6">Mumkin. Hujjatlarni Telegram orqali yuborsangiz kifoya.</p>
+      </details>
+
+      <details class="faq-item" name="savollar">
+        <summary><span data-i18n="savol.q7">Yuk bojxonada to'xtab qolsa yordam berasizmi?</span></summary>
+        <p data-i18n="savol.a7">Ha. To'xtash sababini aniqlab, tuzatilgan hujjatni tayyorlab beramiz.</p>
       </details>
     </div>
   </div>
@@ -371,27 +566,63 @@
 <!-- ============ Aloqa ============ -->
 <section class="contact" id="aloqa">
   <div class="wrap">
-    <span class="badge">Aloqa</span>
-    <h2>Bog'lanish</h2>
-    <p class="section-sub">Qulay usulni tanlang — qo'ng'iroq qiling yoki Telegramda yozing.</p>
+    <div class="contact-card">
+      <span class="badge" data-i18n="aloqa.badge">Aloqa</span>
+      <h2 data-i18n="aloqa.h2">Bog'lanish</h2>
+      <p class="section-sub" data-i18n="aloqa.sub">Qulay usulni tanlang — qo'ng'iroq qiling yoki Telegramda yozing.</p>
 
-    <div class="actions">
-      <a class="btn btn-primary" href="tel:+998972075960">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-        +998 97 207 59 60
-      </a>
-      <a class="btn btn-ghost" href="https://t.me/Raxmonov_01082002" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.4 18.9 19.1c-.23 1.02-.84 1.27-1.7.79l-4.7-3.47-2.27 2.18c-.25.25-.46.46-.95.46l.34-4.8 8.73-7.89c.38-.34-.08-.53-.59-.19L6.98 13.1l-4.64-1.45c-1.01-.32-1.03-1.01.21-1.5l18.14-6.99c.84-.31 1.57.19 1.25 1.24z"/></svg>
-        @Raxmonov_01082002
-      </a>
+      <div class="actions">
+        <a class="btn btn-primary" href="tel:+998972075960">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +998 97 207 59 60
+        </a>
+        <a class="btn btn-ghost" href="https://t.me/Raxmonov_01082002" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.94 4.4 18.9 19.1c-.23 1.02-.84 1.27-1.7.79l-4.7-3.47-2.27 2.18c-.25.25-.46.46-.95.46l.34-4.8 8.73-7.89c.38-.34-.08-.53-.59-.19L6.98 13.1l-4.64-1.45c-1.01-.32-1.03-1.01.21-1.5l18.14-6.99c.84-.31 1.57.19 1.25 1.24z"/></svg>
+          @Raxmonov_01082002
+        </a>
+      </div>
+
+      <p class="note" data-i18n="aloqa.note">Savolingiz bormi — yozing, javob beramiz.</p>
     </div>
-
-    <p class="note">Savolingiz bormi — yozing, javob beraman.</p>
   </div>
 </section>
 
+<!-- ============ Futer ============ -->
 <footer>
-  <div class="wrap">Raxmonov G'ulombek — deklarant</div>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#bosh">
+          <span class="logo-mark">PD</span>
+          <span>
+            <span class="brand-name">Prestigious declarants</span><br>
+            <span class="brand-sub" data-i18n="brand.sub">Deklarantlar jamoasi</span>
+          </span>
+        </a>
+        <p data-i18n="footer.tagline">Bojxona hujjatlari — ishonchli qo'llarda.</p>
+      </div>
+
+      <div class="footer-col footer-col-wide">
+        <h4 data-i18n="footer.bolimlar">Bo'limlar</h4>
+        <div class="footer-links">
+          <a href="#xizmatlar" data-i18n="nav.xizmatlar">Xizmatlar</a>
+          <a href="#jamoa" data-i18n="nav.jamoa">Jamoa</a>
+          <a href="#ishlarimiz" data-i18n="nav.ishlar">Ishlarimiz</a>
+          <a href="#fikrlar" data-i18n="nav.fikrlar">Fikrlar</a>
+          <a href="#hamkorlar" data-i18n="nav.hamkorlar">Hamkorlar</a>
+          <a href="#savollar" data-i18n="nav.savollar">Savollar</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 data-i18n="footer.aloqa">Aloqa</h4>
+        <a href="tel:+998972075960">+998 97 207 59 60</a>
+        <a href="https://t.me/Raxmonov_01082002" target="_blank" rel="noopener">@Raxmonov_01082002</a>
+      </div>
+    </div>
+
+    <p class="footer-note" data-i18n="footer.rights">Raxmonov G'ulombek — deklarant</p>
+  </div>
 </footer>
 
 </body>
