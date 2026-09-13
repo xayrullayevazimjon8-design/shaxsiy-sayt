@@ -182,7 +182,7 @@ Kutubxona, framework, npm yo'q — sof HTML/CSS/JS.
 
 ### Rasmlar
 
-Fayllarni loyiha papkasiga tashlang: `D:\AI\vibecoding\1-saytim (10.09.2026)\`
+Fayllarni loyiha papkasiga tashlang: `C:\AI-Vibecoding\loyihalar\1-gulomiy-uz\`
 Nomlari **aynan shunday** bo'lsin — kod shu nomlarni kutadi:
 
 | Fayl nomi | Kim | O'lcham |

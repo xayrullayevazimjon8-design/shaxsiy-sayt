@@ -126,9 +126,9 @@ Bu uchtasi bo'lmasa Docker umuman ishlamaydi.
 
 | Yozuv | Ishlaydimi |
 |---|---|
-| `docker run -v D:\AI\vibecoding:/app ...` | Yo'q |
+| `docker run -v C:\AI-Vibecoding:/app ...` | Yo'q |
 | `docker run -v .:/app ...` | Ha |
-| `docker run -v /mnt/d/AI/vibecoding:/app ...` | Ha |
+| `docker run -v /mnt/c/AI-Vibecoding:/app ...` | Ha |
 
 ---
 
@@ -142,7 +142,7 @@ Bu uchtasi bo'lmasa Docker umuman ishlamaydi.
 | 2 - Cursor muharrir | Loyihani Cursor da ochadi |
 | 3 - Terminal | PowerShell (node, npm, git, gh shu yerda) |
 | 4 - Git Bash | Git Bash terminali |
-| 5 - Loyiha papkasi | `D:\AI\vibecoding` |
+| 5 - Loyiha papkasi | `C:\AI-Vibecoding` |
 | 6 - Docker o'rnatish fayllari | `D:\AI\dasturlar\docker` |
 | 7 - Ubuntu + Docker terminal | Ubuntu ochadi, Docker o'zi ishga tushadi |
 
